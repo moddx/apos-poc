@@ -1,0 +1,47 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="w-full bg-gray-200 h-[1px] mb-[46px]"></div>
+
+  <section class="bp-content">
+    {% if data.user %}
+    <div class="bp-welcome__verson-wrapper">
+      <span class="bp-welcome__version">alpha</span>
+    </div>
+    {% endif %}
+
+    <div class="text-center mb-[35px] md:mb-[50px]">
+      <h2 class="font-bold font-chivo mx-auto text-[35px] leading-[44px] md:text-[46px] md:leading-[52px] lg:text-[56px] lg:leading-[64px] text-blue-main mb-5 md:mb-[30px] max-w-[725px] tracking-[-.015em]">{{ data.page.title }}</h2>
+
+      {% if data.page.subtitle %}
+      <h3 class="bp-welcome__subtitle font-chivo">
+        {{ data.page.subtitle }}
+      </h3>
+      {% endif %}
+    </div>
+
+    <div class="flex items-center justify-center gap-[22px] mb-[40px] md:mb-[70px]">
+      <button type="button"> 
+        <a class="roundbutton flex items-center inline-block z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px] bg-blue-alt text-white hover:bg-gray-100 hover:text-gray-900 hover:-translate-y-[2px] tracking-wide" href="/about">
+          <span class="block text-inherit w-full h-full rounded-[50px] text-lg font-chivo font-semibold">LEARN MORE</span>
+          <img class="ml-[7px] w-[12px] filter-white group-hover:filter-black" src="/images/icons/icon-right.svg" alt="arrow right icon">
+        </a>
+      </button>
+      <button type="button">
+        <a class="roundbutton flex items-center inline-block z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px] bg-yellow text-gray-900 hover:bg-blue-alt hover:text-white hover:-translate-y-[2px] tracking-wide" href="/join-us">
+          <span class="block text-inherit w-full h-full rounded-[50px] text-lg font-chivo font-semibold">JOIN US</span>
+          <img class="ml-[7px] w-[12px] filter-black group-hover:filter-white" src="/images/icons/icon-right.svg" alt="arrow right icon">
+        </a>
+      </button>
+    </div>
+    
+    <div class="bp-welcome__area">
+      {% area data.page, 'main' %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,52 @@
+{
+  "name": "mypieces-poc",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "start": "ts-node app",
+    "dev": "nodemon",
+    "build": "NODE_ENV=production ts-node app @apostrophecms/asset:build",
+    "serve": "NODE_ENV=production ts-node app",
+    "test": "jest"
+  },
+  "nodemonConfig": {
+    "delay": 1000,
+    "verbose": true,
+    "watch": [
+      "./app.ts",
+      "./modules/**/*",
+      "./lib/**/*.js",
+      "./lib/**/*.ts",
+      "./views/**/*.html"
+    ],
+    "ignoreRoot": [
+      ".git"
+    ],
+    "ignore": [
+      "locales/*.json",
+      "public/uploads",
+      "public/apos-frontend/*.js",
+      "data"
+    ],
+    "execMap": {
+      "ts": "ts-node"
+    },
+    "ext": "json, js, ts, html, scss, vue"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apostrophe": "^3.51.1",
+    "autoprefixer": "^10.4.14",
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-apostrophe": "^3.4.2",
+    "eslint-plugin-n": "^15.6.1",
+    "nodemon": "^2.0.22",
+    "ts-loader": "^9.4.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.3"
+  }
+}
